@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ファンアートビューア</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        /* 画面全体にフィットさせるための基本設定 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* スクロールを禁止 */
+            background-color: #000; /* 背景色を黒にして、漫画に集中させる */
+        }
+        /* Swiperコンテナを画面全体にフィットさせる */
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        /* 漫画の画像をコンテナにフィットさせる */
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide img {
+            /* 画像を画面の縦幅か横幅のどちらか大きい方に合わせて拡大 */
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* 画像全体を表示し、余白は黒背景にする */
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/001.jpeg" alt="コマ1"></div>
+            <div class="swiper-slide"><img src="images/002.jpeg" alt="コマ2"></div>
+            <div class="swiper-slide"><img src="images/003.jpeg" alt="コマ3"></div>
+            </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Swiperを初期化
+        const swiper = new Swiper('.swiper', {
+            // オプション設定
+            direction: 'horizontal', // スワイプ方向を横に設定
+            loop: false,             // ループ再生しない
+            // ナビゲーション設定
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html>
+
